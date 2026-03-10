@@ -1,0 +1,31 @@
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getDatabase } from "firebase/database";
+import { getStorage } from "firebase/storage"; // Importa getStorage
+
+// Configuración de Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyACfQPtzFX1Os2-YqMUjop0cDXwHKo_I24",
+  authDomain: "proyectoint-31b99.firebaseapp.com",
+  databaseURL: "https://proyectoint-31b99-default-rtdb.firebaseio.com",
+  projectId: "proyectoint-31b99",
+  storageBucket: "proyectoint-31b99.appspot.com",
+  messagingSenderId: "575111267833",
+  appId: "1:575111267833:web:f97eb4c18dffa8d5b1e928",
+  measurementId: "G-WX7JCXNX5G",
+};
+
+// Inicializar Firebase
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const firestore = getFirestore(app);
+export const db = getDatabase(app);
+export const storage = getStorage(app); // Exporta storage
+
+// Inicializar Analytics solo en entornos donde `window` esté disponible
+if (typeof window !== "undefined") {
+  import("firebase/analytics").then(({ getAnalytics }) => {
+    getAnalytics(app);
+  }).catch(err => console.error("Error al inicializar Analytics:", err));
+}
