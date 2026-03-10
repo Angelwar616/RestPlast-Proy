@@ -58,6 +58,6 @@ Databases
 
 Other Technologies
 
-IoT device integration
+-IoT device integration
 
-Real-time data handling
+-Real-time data handling
